@@ -2,8 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{html,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        main: "white",
+        additional: "rgb(118, 227, 131)",
+        accent: "rgb(73, 140,81)",
+      }
+    },
   },
   plugins: [],
+  body: ["Comic Sans MS"],
 }
-
