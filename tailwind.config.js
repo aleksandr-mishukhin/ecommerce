@@ -7,9 +7,11 @@ module.exports = {
         main: "white",
         additional: "rgb(118, 227, 131)",
         accent: "rgb(73, 140,81)",
+      },
+      fontFamily: {
+        sans: ["Comic Sans MS", "Comic Sans", "cursive"],
       }
     },
   },
   plugins: [],
-  body: ["Comic Sans MS"],
 }
