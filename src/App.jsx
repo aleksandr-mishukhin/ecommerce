@@ -7,6 +7,8 @@ import Home from './routes/Home';
 import Checkout from './routes/Checkout';
 import SignUp from './routes/SignUp';
 import SignIn from './routes/SignIn';
+import Admin from './routes/Admin';
+import Product from "./routes/Product"
 
 const theme = extendTheme({
   fonts: {
@@ -24,6 +26,8 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="product/:id" element={<Product />} />
         </Route>
       </Routes>
     </ChakraProvider>

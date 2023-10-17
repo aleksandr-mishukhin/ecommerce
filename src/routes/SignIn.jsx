@@ -10,44 +10,47 @@ const SignIn = () => {
       <h1 className='m-auto text-2xl mt-5 mb-5'>Логин</h1>
       <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
-          patronymic: '',
-          role: 'Клиент',
           email: '',
+          password: '',
         }}
         onSubmit={async (values) => {
           await new Promise((r) => setTimeout(r, 500));
           alert(JSON.stringify(values, null, 2));
         }}
       >
-      <Form className='flex flex-col w-full max-w-[700px] m-auto'>
-        <label htmlFor="email" className='mt-5 mb-3'>Эл. почта</label>
-        <Input
-          id="email"
-          name="email"
-          placeholder="jane@acme.com"
-          type="email"
-          className='mb-5'
-        />
-         <label htmlFor="password" className='mt-5 mb-3'>Пароль</label>
-        <InputGroup size='md'>
+        {({
+         handleChange,
+       }) => (
+        <Form className='flex flex-col w-full max-w-[700px] m-auto'>
+          <label htmlFor="email" className='mt-5 mb-3'>Эл. почта</label>
           <Input
-            pr='4.5rem'
-            type={show ? 'text' : 'password'}
-            placeholder='Enter password'
-            id="password"
-            name="password"
+            id="email"
+            name="email"
+            placeholder="jane@acme.com"
+            type="email"
             className='mb-5'
+            onChange={handleChange}
           />
-          <InputRightElement width='4.5rem'>
-            <Button h='1.75rem' size='sm' onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-        <Button type="submit" className='w-[50%] m-auto' borderColor="rgb(118, 227, 131)" variant="outline">Логин</Button>
-      </Form>
+          <label htmlFor="password" className='mt-5 mb-3'>Пароль</label>
+          <InputGroup size='md'>
+            <Input
+              pr='4.5rem'
+              type={show ? 'text' : 'password'}
+              placeholder='Enter password'
+              id="password"
+              name="password"
+              className='mb-5'
+              onChange={handleChange}
+            />
+            <InputRightElement width='4.5rem'>
+              <Button h='1.75rem' size='sm' onClick={handleClick}>
+                {show ? 'Hide' : 'Show'}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+          <Button type="submit" className='w-[50%] m-auto' borderColor="rgb(118, 227, 131)" variant="outline">Войти</Button>
+        </Form>
+      )}
     </Formik>
   </div>
   )
