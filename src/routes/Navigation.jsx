@@ -16,7 +16,8 @@ const Navigation = () => {
           />
         </Link>
         <div className='flex gap-10 h-full'>
-          <Link href="auth" className="h-full flex items-center">Login</Link>
+          <Link href="signin" className="h-full flex items-center">Sign In</Link>
+          <Link href="signup" className="h-full flex items-center">Sign Up</Link>
           <Link href="Checkout" className="h-full flex items-center">Checkout</Link>
         </div>
       </header>

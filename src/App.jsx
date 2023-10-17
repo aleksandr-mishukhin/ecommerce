@@ -4,8 +4,9 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './routes/Navigation';
 import Home from './routes/Home';
-import Authentication from './routes/Authentication';
 import Checkout from './routes/Checkout';
+import SignUp from './routes/SignUp';
+import SignIn from './routes/SignIn';
 
 const theme = extendTheme({
   fonts: {
@@ -20,7 +21,8 @@ function App() {
       <Routes >
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
-          <Route path="auth" element={<Authentication />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="signin" element={<SignIn />} />
           <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
