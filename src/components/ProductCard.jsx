@@ -13,7 +13,7 @@ function ProductCard() {
           <p>Название товара: Some product</p>
           <p>Описание тоавара: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
 molestiae quas vel sint com</p>
-          <p>Производитель: хорошое ☺</p>
+          <p>Производитель: Nike</p>
           <p>Цена: 45$</p>
         </Link>
       </div>

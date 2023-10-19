@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom'
 const Navigation = () => {
   return (
     <>
-    <div className='sticky top-0 w-full z-10 bg-main'>
+    <div className='sticky top-0 w-full z-10 bg-main border-b-gray-200 border-[.5px]'>
       <header className='h-20 flex items-center justify-between pl-10  pr-10 max-w-[1500px] w-full m-auto'>
         <Link href="/">
           <Image
@@ -20,6 +20,7 @@ const Navigation = () => {
           <Link href="/signup" className="h-full flex items-center">Регистрация</Link>
           <Link href="/checkout" className="h-full flex items-center">Корзина</Link>
           <Link href="/admin" className="h-full flex items-center">Админ панель</Link>
+          <Link href="/user" className="h-full flex items-center">Профиль</Link>
           <Link className="h-full flex items-center" onClick={() => {}}>Выйти</Link>
         </div>
       </header>

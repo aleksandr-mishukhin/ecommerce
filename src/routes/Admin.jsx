@@ -1,4 +1,4 @@
-import { Button, Input, } from '@chakra-ui/react';
+import { Button, Input, Select, } from '@chakra-ui/react';
 import { Formik, Form } from 'formik';
 import React, { useState } from 'react'
 
@@ -14,6 +14,7 @@ const Admin = () => {
       <Formik
         initialValues={{
           name: '',
+          category: 'Спортивный инвентарь',
           price: '',
           manufacturer: '',
           provider: '',
@@ -39,6 +40,17 @@ const Admin = () => {
             className='mb-5'
             onChange={handleChange}
           />
+          <label htmlFor="category" className='mt-5 mb-3'>Категория</label>
+          <Select
+            id="category"
+            name="category"
+            defaultValue="Спортивный инвентарь"
+            className='mb-5'
+            onChange={handleChange}
+          >
+            <option>Спортивный инвентарь</option>
+            <option>Одежда</option>
+          </Select>
           <label htmlFor="price" className='mt-5 mb-3'>Цена</label>
           <Input
             id="price"

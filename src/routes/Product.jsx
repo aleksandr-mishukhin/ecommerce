@@ -11,7 +11,7 @@ const Product = () => {
         <div className='flex flex-col gap-4'>
           <p>Описание тоавара: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
   molestiae quas vel sint com</p>
-          <p>Производитель: хорошое ☺</p>
+          <p>Производитель: nike</p>
           <p>Цена: 45$</p>
           <p>Наличие на складе: 5</p>
           <Button borderColor="rgb(118, 227, 131)" variant={'outline'} >Купить</Button>

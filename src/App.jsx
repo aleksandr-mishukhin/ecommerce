@@ -9,6 +9,7 @@ import SignUp from './routes/SignUp';
 import SignIn from './routes/SignIn';
 import Admin from './routes/Admin';
 import Product from "./routes/Product"
+import User from './routes/User';
 
 const theme = extendTheme({
   fonts: {
@@ -28,6 +29,7 @@ function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="admin" element={<Admin />} />
           <Route path="product/:id" element={<Product />} />
+          <Route path="user" element={<User />} />
         </Route>
       </Routes>
     </ChakraProvider>
