@@ -1,8 +1,10 @@
 import { Button, Image } from '@chakra-ui/react'
 import React from 'react'
 import Logo from "../assets/D648N7.jpg"
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Product = () => {
+  const navigate = useNavigate();
   return (
     <div className='shadow-[0px_0px_10px_-2px_rgba(34,60,80,0.2)] p-5 ml-auto mr-auto mt-10 mb-10 max-w-[1000px] w-[1000px]'>
       <p className='font-medium text-xl mb-10'>Название товара: Some product</p>
@@ -14,7 +16,7 @@ const Product = () => {
           <p>Производитель: nike</p>
           <p>Цена: 45$</p>
           <p>Наличие на складе: 5</p>
-          <Button borderColor="rgb(118, 227, 131)" variant={'outline'} >Купить</Button>
+          <Button borderColor="rgb(118, 227, 131)" variant={'outline'} >Добавить в корзину</Button>
         </div>
       </div>
     </div>
