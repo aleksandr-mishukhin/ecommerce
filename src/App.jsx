@@ -9,7 +9,8 @@ import SignIn from './routes/SignIn';
 import Admin from './routes/Admin';
 import Product from "./routes/Product"
 import User from './routes/User';
-import Checkout from './routes/Checkout';
+import Cart from './routes/Cart';
+import { useSelector } from 'react-redux';
 
 const theme = extendTheme({
   fonts: {
@@ -19,6 +20,7 @@ const theme = extendTheme({
 })
 
 function App() {
+  const isAuth = useSelector(state => state.user.isAuth)
   return (
     <ChakraProvider theme={theme}>
       <Routes >
@@ -26,10 +28,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
-          <Route path="admin" element={<Admin />} />
+          {isAuth && <Route path="admin" element={<Admin />} />}
           <Route path="product/:id" element={<Product />} />
           <Route path="user" element={<User />} />
-          <Route path="checkout" element={<Checkout />} />
+          {isAuth && <Route path="cart" element={<Cart />} />}
         </Route>
       </Routes>
     </ChakraProvider>

@@ -2,7 +2,7 @@ import React from 'react'
 import ProductCard from '../components/ProductCard'
 import { Button } from '@chakra-ui/react'
 
-const Checkout = () => {
+const Cart = () => {
   return (
     <div className='max-w-[970px] mt-10 mb-10 ml-auto mr-auto w-full p-5 flex justify-center align-middle flex-col'>
       <ProductCard />
@@ -11,4 +11,4 @@ const Checkout = () => {
   )
 }
 
-export default Checkout
+export default Cart
