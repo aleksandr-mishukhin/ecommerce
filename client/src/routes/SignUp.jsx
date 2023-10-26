@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form } from 'formik';
 import { Button, Input, InputGroup, InputRightElement, Select } from '@chakra-ui/react';
+import {registration} from "../api/user";
+import { getRoles } from '../api/user';
+import { useDispatch } from 'react-redux';
+import { setUser, setIsAuth } from "../store/userSlice"
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [show, setShow] = React.useState(false)
+  const [roles, setRoles] = React.useState([])
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const handleClick = () => setShow(!show)
+  const handleSubmit = async (firstName, lastName, patronymic, email, password, roleId) => {
+    const user = await registration(firstName, lastName, patronymic, email, password, roleId)
+    dispatch(setUser(user))
+    dispatch(setIsAuth(true))
+    navigate("/")
+  }
+  
+  useEffect(() => {
+    getRoles().then(data => setRoles(data))
+  }, [])
+  
   return (
     <div className='flex flex-col max-w-[1500px] m-auto p-10'>
       <h1 className='m-auto text-2xl mt-5 mb-5'>Регистрация</h1>
@@ -13,12 +32,12 @@ const SignUp = () => {
           firstName: '',
           lastName: '',
           patronymic: '',
-          role: 'Клиент',
+          roleId: 1,
           email: '',
+          password: ''
         }}
-        onSubmit={async (values) => {
-          await new Promise((r) => setTimeout(r, 500));
-          alert(JSON.stringify(values, null, 2));
+        onSubmit={async ({firstName, lastName, patronymic, email, password, roleId}) => {
+          await handleSubmit(firstName, lastName, patronymic, email, password, roleId);
         }}
       >
       {({
@@ -32,10 +51,10 @@ const SignUp = () => {
           <label htmlFor="patronymic" className='mt-5 mb-3'>Отчество</label>
           <Input id="patronymic" name="patronymic" placeholder="Wilson" onChange={handleChange}/>
           <label htmlFor="role" className='mt-5 mb-3'>Роль</label>
-          <Select name="role" id="role" defaultValue="Клиент" onChange={handleChange}>
-            <option>Администратор</option>
-            <option>Менеджер</option>
-            <option>Клиент</option>
+          <Select name="roleId" id="roleId" defaultValue="1" onChange={handleChange}>
+            {roles.map(role => (
+              <option key={role.id} value={role.id}>{role.name}</option>
+            ))}
           </Select>
           <label htmlFor="email" className='mt-5 mb-3'>Эл. почта</label>
           <Input

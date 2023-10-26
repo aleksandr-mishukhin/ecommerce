@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     isAuth: false,
     user: {},
-    basket: []
 }
 
 export const userSlice = createSlice({
@@ -15,12 +14,6 @@ export const userSlice = createSlice({
         },
         setUser(state, action) {
             state.user = action.payload
-        },
-        setBasket(state, action) {
-            state.basket = action.payload
-        },
-        addBasketProduct(state, action){
-            state.basket.push(action.payload)
         }
     }
 })

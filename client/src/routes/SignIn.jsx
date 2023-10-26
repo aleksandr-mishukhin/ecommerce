@@ -1,10 +1,16 @@
 import React from 'react'
 import { Formik, Form } from 'formik';
 import { Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { login } from '../api/user';
+import { useDispatch } from 'react-redux';
+import { setIsAuth, setUser } from '../store/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   return (
     <div className='flex flex-col max-w-[1500px] m-auto p-10'>
       <h1 className='m-auto text-2xl mt-5 mb-5'>Логин</h1>
@@ -13,9 +19,11 @@ const SignIn = () => {
           email: '',
           password: '',
         }}
-        onSubmit={async (values) => {
-          await new Promise((r) => setTimeout(r, 500));
-          alert(JSON.stringify(values, null, 2));
+        onSubmit={async ({email, password}) => {
+          const user = await login(email, password)
+          dispatch(setUser(user))
+          dispatch(setIsAuth(true))
+          navigate("/")
         }}
       >
         {({
